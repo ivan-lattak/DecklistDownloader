@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button onAction="#download" fx:id="downloadButton" text="Download" />
+            <Button onAction="#quit" text="Quit">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+        </buttons>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </ButtonBar>
+   </bottom>
+   <center>
+      <GridPane alignment="CENTER" hgap="10" nodeOrientation="LEFT_TO_RIGHT" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" maxWidth="295.0" minWidth="10.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="533.0" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label labelFor="$url-text-field" fx:id="decklistURLLabel" text="URL" textAlignment="RIGHT" GridPane.halignment="RIGHT" />
+            <Label labelFor="$title-text-field" fx:id="decklistTitleLabel" text="Decklist Title" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Label onMouseClicked="#setOutputFile" fx:id="outputFileLabel" text="Output File" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <TextField id="url-text-field" fx:id="decklistURL" GridPane.columnIndex="1" />
+            <TextField id="title-text-field" fx:id="decklistTitle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane hgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="315.0" minWidth="10.0" />
+                <ColumnConstraints hgrow="NEVER" maxWidth="175.0" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="outputFile" />
+                  <Button onAction="#setOutputFile" fx:id="outputFileButton" text="Browse..." GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="25.0" right="25.0" top="50.0" />
+         </padding>
+      </GridPane>
+   </center>
+   <top>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MTGGoldfish Decklist Downloader" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin></Text>
+   </top>
+</BorderPane>
